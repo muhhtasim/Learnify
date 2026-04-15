@@ -10,19 +10,19 @@ app.use(cors());
 
 // --- ১. Registration Route (Updated with University) ---
 app.post('/register', (req, res) => {
-    // ফ্রন্টএন্ড থেকে university সহ সব ডাটা রিসিভ করা হচ্ছে
+  
     const { name, email, password, role, university } = req.body; 
     
     console.log("📥 Registration Attempt for:", email);
 
-    // SQL কুয়েরিতে ৫টি কলাম উল্লেখ করা হয়েছে (full_name, email, password, role, university)
+    // SQL (full_name, email, password, role, university)
     const sql = "INSERT INTO users (full_name, email, password, role, university) VALUES (?, ?, ?, ?, ?)";
     
-    // ভ্যালু হিসেবে university পাঠানো হচ্ছে
+
     mysql.query(sql, [name, email, password, role || 'student', university], (err, result) => {
         if (err) {
             console.error("❌ DB Error:", err.sqlMessage);
-            // সরাসরি DB এরর মেসেজ পাঠানো হচ্ছে যাতে ডিবাগ করতে সুবিধা হয়
+           
             return res.status(500).json({ 
                 message: "Registration failed!", 
                 error: err.sqlMessage 
@@ -33,7 +33,7 @@ app.post('/register', (req, res) => {
     });
 });
 
-// --- ২. Login Route ---
+//  Login Route ---
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
     const sql = "SELECT * FROM users WHERE email = ? AND password = ?";
@@ -64,7 +64,7 @@ app.post('/login', (req, res) => {
     });
 });
 
-// --- ৩. Enrollment Route ---
+//  Enrollment Route ---
 app.post('/enroll', (req, res) => {
     const { user_id, course_id } = req.body;
     const sql = "INSERT INTO enrollments (user_id, course_id) VALUES (?, ?)";
@@ -78,7 +78,7 @@ app.post('/enroll', (req, res) => {
     });
 });
 
-// --- ৪. Get User's Enrolled Courses ---
+//  Get User's Enrolled Courses ---
 app.get('/my-courses/:userId', (req, res) => {
     const userId = req.params.userId;
     const sql = `
@@ -92,7 +92,7 @@ app.get('/my-courses/:userId', (req, res) => {
     });
 });
 
-// --- ৫. Get All Courses ---
+//  Get All Courses ---
 app.get('/courses', (req, res) => {
     let { userId } = req.query; 
     let sql = "SELECT * FROM courses";
@@ -110,7 +110,7 @@ app.get('/courses', (req, res) => {
     });
 });
 
-// --- ৬. Get Single Course Details ---
+// Get Single Course Details ---
 app.get('/course/:id', (req, res) => {
     const id = req.params.id;
     const sql = "SELECT * FROM courses WHERE course_id = ?";
@@ -120,7 +120,7 @@ app.get('/course/:id', (req, res) => {
     });
 });
 
-// --- ৭. Add New Course ---
+//  Add New Course ---
 app.post('/add-course', (req, res) => {
     const { title, price, category, description } = req.body;
     const sql = "INSERT INTO courses (title, price, category, description) VALUES (?, ?, ?, ?)";
@@ -130,7 +130,7 @@ app.post('/add-course', (req, res) => {
     });
 });
 
-// --- ৮. Delete Course ---
+//  Delete Course ---
 app.delete('/delete-course/:id', (req, res) => {
     const courseId = req.params.id;
     const sql = "DELETE FROM courses WHERE course_id = ?";
