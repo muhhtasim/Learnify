@@ -4,7 +4,7 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',      
   password: '',      
-  database: 'ed-tech_db' // <--- Ekhane database er exact nam ta likhun
+  database: 'ed-tech_db' 
 });
 
 connection.connect((err) => {
