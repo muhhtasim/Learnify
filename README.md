@@ -8,7 +8,7 @@
 ## 👥 Group Details
 **Course Number:** 7  
 **Course Code:** CSE 224  
-**Instructor:** Fahmidul Rahman Sakib, Senior Lecturer, Department of CSE, Metropolitan University
+**Instructor:** Fahmidur Rahman Sakib, Senior Lecturer, Department of CSE, Metropolitan University
 
 ### Team Members & Contributions
 | Name | ID | Module & Feature Contribution |
