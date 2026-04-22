@@ -64,3 +64,47 @@ ed-tech-platform/
 │  │  └─ App.jsx         # Root component & Route definitions
 │  └─ package.json
 └─ README.md
+
+
+## 🎥 Demo Video
+[Watch Project Demo on Google Drive](https://link-to-your-google-drive-video)
+
+---
+
+## 🔐 Security Measures
+
+To ensure data integrity and user safety, the following security practices have been implemented:
+
+* **Password Hashing:** Protecting user credentials using industry-standard hashing algorithms (e.g., bcrypt).
+* **Input Validation:** Preventing malformed data entry and ensuring data consistency.
+* **SQL Injection Protection:** Ensuring database security through the use of **prepared statements** and parameterized queries.
+* **Role-based Access Control (RBAC):** Restricting sensitive features and admin dashboards to authorized users only.
+
+---
+
+## 🚀 Installation & Setup
+
+Follow these steps to get the project up and running on your local machine:
+
+### 1. Clone the repository
+```bash
+git clone [https://github.com/your-username/ed-tech-platform.git](https://github.com/your-username/ed-tech-platform.git)
+cd ed-tech-platform
+cd backend
+npm install
+# Configure your MySQL settings in config/db.js or .env file
+node server.js
+
+cd ../frontend
+npm install
+npm run dev
+
+
+## 🎯 Expected Outcome
+
+Upon successful setup, this project delivers a comprehensive **Online Learning Platform** designed with industry best practices. The key takeaways and functional highlights include:
+
+* **Structured Database Management:** Efficient data handling and relational mapping using **MySQL**.
+* **Robust Security:** Implementation of secure user **authentication** and **authorization** (JWT/Session).
+* **Full CRUD Operations:** Complete capability to **Create, Read, Update, and Delete** resources for both courses and user profiles.
+* **Full-Stack Proficiency:** A real-world demonstration of connecting a modern frontend with a secure, scalable backend architecture.
